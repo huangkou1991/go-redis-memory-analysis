@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hhxsv5/go-redis-memory-analysis/storages"
+	"github.com/huangkou1991/go-redis-memory-analysis/storages"
 )
 
 type AnalysisConnection struct {
