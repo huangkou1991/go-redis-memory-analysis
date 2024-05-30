@@ -13,13 +13,13 @@ type RedisClient struct {
 	conn redis.Conn
 }
 
-func NewRedisClient(host string, port uint16, password string) (*RedisClient, error) {
+func NewRedisClient(host string, port uint16, password string, useTls bool) (*RedisClient, error) {
 	var addr bytes.Buffer
 	addr.WriteString(host)
 	addr.WriteString(":")
 	addr.WriteString(strconv.Itoa(int(port)))
 
-	conn, err := redis.Dial("tcp", addr.String())
+	conn, err := redis.Dial("tcp", addr.String(), redis.DialUseTLS(useTls))
 	if err != nil {
 		return nil, err
 	}
