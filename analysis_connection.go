@@ -16,8 +16,8 @@ type AnalysisConnection struct {
 	scanLimitNum uint64
 }
 
-func NewAnalysisConnection(host string, port uint16, password string) (*AnalysisConnection, error) {
-	redis, err := storages.NewRedisClient(host, port, password)
+func NewAnalysisConnection(host string, port uint16, password string, useTls bool) (*AnalysisConnection, error) {
+	redis, err := storages.NewRedisClient(host, port, password, useTls)
 	if err != nil {
 		return nil, err
 	}
